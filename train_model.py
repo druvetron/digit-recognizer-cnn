@@ -48,4 +48,4 @@ print("6. Saving the trained model...")
 # This exports the "brain" so we can load it into our API later
 model.save('my_digit_model.keras')
 
-print("Done! Check your folder for 'my_digit_model.keras'")
+print("done -> 'my_digit_model.keras'")
