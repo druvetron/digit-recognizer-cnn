@@ -8,10 +8,9 @@ A web app where you draw a digit and a trained CNN tells you what it is.
 
 ## ✨ Features
 
-- **Draw & Predict** — Sketch any digit (0–9) on an HTML5 canvas and get an instant prediction
-- **Custom CNN** — A LeNet-5-inspired model trained on 60,000 MNIST images
-- **Full-Stack** — React frontend communicates with a Flask REST API serving the TensorFlow model
-- **Probability Output** — Returns the full softmax distribution, not just the top guess
+- **Draw & Predict** — Sketch any digit (0–9) on an HTML5 canvas and get an instant prediction.
+- **Custom CNN** — A LeNet-5-inspired model trained on 60,000 MNIST images.
+- **Full-Stack** — React frontend communicates with a Flask REST API serving the TensorFlow model.
 
 ---
 
@@ -43,7 +42,6 @@ Flask receives the pixel array and:
 
 ### 3. CNN Architecture
 
-```
 ```mermaid
 flowchart TD
     A["🖼️ Input Image\n28×28×1 tensor, normalized"] --> B
@@ -62,7 +60,6 @@ flowchart TD
     style F fill:#fef3c7,stroke:#f59e0b,color:#78350f
     style G fill:#ffe4e6,stroke:#f43f5e,color:#881337
 ```
-```
 
 ### 4. Prediction → Response
 
@@ -72,7 +69,7 @@ The model outputs a 10-element probability vector. The API returns the `argmax` 
 
 ## 🚀 Getting Started
 
-You'll need **two terminal windows** — one for the backend, one for the frontend.
+You will need **two terminal windows** — one for the backend, one for the frontend.
 
 ### Prerequisites
 
@@ -83,20 +80,21 @@ You'll need **two terminal windows** — one for the backend, one for the fronte
 
 ```bash
 # Clone the repository
-git clone https://github.com/druvetron/digit-recognizer-cnn.git
+git clone [https://github.com/druvetron/digit-recognizer-cnn.git](https://github.com/druvetron/digit-recognizer-cnn.git)
 cd digit-recognizer-cnn
 
 # Install Python dependencies
 pip install tensorflow flask flask-cors numpy
 
-# Start the Flask server (http://127.0.0.1:5000)
+# Start the Flask server ([http://127.0.0.1:5000](http://127.0.0.1:5000))
 python app.py
 ```
 
 ### Frontend (Terminal 2)
 
 ```bash
-cd client
+# Open a new terminal and navigate to the frontend folder
+cd digit-frontend
 
 # Install Node dependencies
 npm install
@@ -111,17 +109,16 @@ Open [http://localhost:5173](http://localhost:5173) in your browser, draw a digi
 
 ## 📁 Project Structure
 
-```
+```text
 digit-recognizer-cnn/
 ├── app.py               # Flask API — loads model, handles /predict endpoint
-├── train.py             # Model definition & MNIST training script
-├── model/
-│   └── digit_model.h5   # Saved Keras model weights
-└── client/
+├── train_model.py       # Model definition & MNIST training script
+├── my_digit_model.keras # Saved Keras model weights
+└── digit-frontend/      # React frontend directory
     ├── src/
-    │   ├── App.jsx       # Main component with canvas + prediction display
-    │   └── Canvas.jsx    # Drawing logic & pixel extraction
-    └── vite.config.js
+    │   ├── App.jsx      # Main component with canvas + prediction display
+    │   └── App.css      # Styling
+    └── package.json
 ```
 
 ---
@@ -135,15 +132,14 @@ Accepts a flattened pixel array and returns the predicted digit.
 **Request body:**
 ```json
 {
-  "pixels": [0.0, 0.12, 0.95, ...]  // 784 normalized float values
+  "pixels": [0.0, 0.12, 0.95]  // 784 normalized float values
 }
 ```
 
 **Response:**
 ```json
 {
-  "prediction": 7,
-  "probabilities": [0.001, 0.002, 0.01, ..., 0.94, ...]
+  "prediction": 7
 }
 ```
 
@@ -151,7 +147,7 @@ Accepts a flattened pixel array and returns the predicted digit.
 
 ## 🤝 Contributing
 
-Pull requests are welcome. For major changes, please open an issue first to discuss what you'd like to change.
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 ---
 
