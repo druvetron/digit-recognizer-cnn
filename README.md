@@ -38,6 +38,13 @@ The React canvas captures your drawing as raw RGBA pixel data. Before sending it
 
 Flask receives the pixel array and:
 - Reshapes it into a `(1, 28, 28, 1)` tensor
+
+here the dimensions are for:
+1 (Batch Size / N): The number of images contained in the batch. Here, it means exactly one single image is being processed.
+28 (Height / H): The vertical dimension of the image, consisting of 28 pixels.
+28 (Width / W): The horizontal dimension of the image, consisting of 28 pixels.
+1 (Channels / C): The color channel depth. A value of 1 signifies a grayscale (black and white) image. If this value were 3, it would denote a color image (RGB).
+
 - Normalizes pixel values to the `[0, 1]` range
 
 ### 3. CNN Architecture
